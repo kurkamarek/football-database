@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mt-1 mb-3 bg-dark text-white p-1">
+  <div class="col-sm-12">
+    <h2 class="text-center">Seznam hráčů</h2>
+  </div>
+</div>
+<div class="row text-center">
+  {% for Hrac in hraci %}
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ Hrac.jmeno }} {{ Hrac.prijmeni }}</h4>
+        {% if Hrac.foto %}<img class="card-img-top img-fluid" src="{{ Hrac.foto.url }}">
+        {% endif %}
+        <a href="{% url 'hraci_detail' Hrac.pk %}" class="btn btn-success mt-3">Podrobnosti</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

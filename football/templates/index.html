@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mt-1 mb-3 bg-dark text-white p-1">
+  <div class="col-sm-12">
+    <h2 class="text-center">Hráči</h2>
+  </div>
+</div>
+<div class="row text-center">
+  {% for Hrac in hraci %}
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ Hrac.jmeno }} {{ Hrac.prijmeni }}</h4>
+        {% if Hrac.foto %}<img class="card-img-top img-fluid" src="{{ Hrac.foto.url }}">
+        {% endif %}
+        <p class="card-text mt-3">
+          <strong>Klub:</strong>
+          {{ Hrac.klubNazev }}
+        </p>
+        <p><strong>Výška:</strong> {{ Hrac.vyska }} cm</p>
+          <p><strong>Datum narození:</strong> {{ Hrac.datum_narozeni }}</p>
+          <p><strong>Pozice:</strong> {{ Hrac.pozice }}</p>
+        <p><strong>Preferovaná noha:</strong> {{ Hrac.preferovana_noha }}</p>
+        <a href="{% url 'hraci_detail' Hrac.pk %}" class="btn btn-success">Podrobnosti</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="row text-center">
+  <div class="col-sm-12">
+    <strong>Celkový počet hráčů:</strong> {{ num_hraci }}
+  </div>
+</div>
+{% endblock %}
