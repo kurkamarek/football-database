@@ -8,7 +8,7 @@ def index(request):
 
     num_hraci = Hrac.objects.all().count()
 
-    hraci = Hrac.objects.order_by('prijmeni')[:3]
+    hraci = Hrac.objects.order_by('poradi_zlaty_mic')[:3]
 
     context = {
         'num_hraci': num_hraci,

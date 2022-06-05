@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-4">
+<div class="container text-center col-sm-6">
+    <div>
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{ hraci_detail.prijmeni }}</h4>
                 {% if hraci_detail.foto %}<img class="card-img-top img-fluid" src="{{ hraci_detail.foto.url }}">
                 {% endif %}
-                <p class="card-text">
+                <p class="card-text pt-2">
                     <strong>Klub:</strong>
                     {{ hraci_detail.klubNazev }}
                 </p>
@@ -16,6 +16,7 @@
                 <p><strong>Datum narození:</strong> {{ hraci_detail.datum_narozeni }}</p>
                 <p><strong>Pozice:</strong> {{ hraci_detail.pozice }}</p>
                 <p><strong>Preferovaná noha:</strong> {{ hraci_detail.preferovana_noha }}</p>
+                <p><strong>Umístění v ceně zlatý míč:</strong> {{ hraci_detail.poradi_zlaty_mic }}.</p>
             </div>
         </div>
     </div>

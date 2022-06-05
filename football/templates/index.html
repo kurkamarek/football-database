@@ -4,7 +4,7 @@
 {% block content %}
 <div class="row mt-1 mb-3 bg-dark text-white p-1">
   <div class="col-sm-12">
-    <h2 class="text-center">Hráči</h2>
+    <h2 class="text-center">Top 3 hráči</h2>
   </div>
 </div>
 <div class="row text-center">
@@ -23,6 +23,7 @@
           <p><strong>Datum narození:</strong> {{ Hrac.datum_narozeni }}</p>
           <p><strong>Pozice:</strong> {{ Hrac.pozice }}</p>
         <p><strong>Preferovaná noha:</strong> {{ Hrac.preferovana_noha }}</p>
+        <p><strong>Umístění v ceně zlatý míč:</strong> {{ Hrac.poradi_zlaty_mic }}.</p>
         <a href="{% url 'hraci_detail' Hrac.pk %}" class="btn btn-success">Podrobnosti</a>
       </div>
     </div>
@@ -30,8 +31,13 @@
   {% endfor %}
 </div>
 <div class="row text-center">
-  <div class="col-sm-12">
+  <div class="col-sm-12 p-2">
     <strong>Celkový počet hráčů:</strong> {{ num_hraci }}
   </div>
+  <div class="row mt-1 mb-3">
+  <div class="col-sm-12">
+     <h2 class="text-center">Celkový seznam hráčů <a href="{% url 'hraci' %}">zde</a></h2>
+  </div>
+</div>
 </div>
 {% endblock %}

@@ -57,20 +57,22 @@ class Hrac(models.Model):
 
 
     POZICE = (
-        ("utocnik", "útočník"),
-        ("zaloznik", "záložník"),
-        ("obrance", "obránce"),
-        ("brankar", "brankář"),
+        ("útočník", "útočník"),
+        ("záložník", "záložník"),
+        ("obránce", "obránce"),
+        ("brankář", "brankář"),
     )
 
     pozice = models.CharField(max_length=50, choices=POZICE)
 
     PREFEROVANA_NOHA = (
-        ("prava", "pravá"),
-        ("leva", "levá"),
+        ("pravá", "pravá"),
+        ("levá", "levá"),
     )
 
     preferovana_noha = models.CharField(max_length=50, choices=PREFEROVANA_NOHA, verbose_name="Preferovaná noha")
+
+    poradi_zlaty_mic = models.IntegerField(validators=[MaxValueValidator(30), MinValueValidator(1)], verbose_name="Pořadí (zlatý míč)")
 
     class Meta:
         ordering = ['prijmeni']
